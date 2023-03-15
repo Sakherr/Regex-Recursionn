@@ -1,10 +1,13 @@
 /* Write a function to do the division operation without using the built-in division*/
 
 function division(number, dividedBy) {
-    if (dividedBy === 0) {
-        return 0;
-    }
-    return number / dividedBy;
+  if (dividedBy === 0) {
+      return 0;
+  } else if (number < dividedBy) {
+      return 0;
+  } else {
+      return 1 + division(number - dividedBy, dividedBy);
+  }
 }
 
 
@@ -39,20 +42,15 @@ Write a function that take n as parameter and return the nth element in the Fibo
 Example: n = 4 ==> 3, n= 0 ==> 0, n = 3 ==> 2 */
 
 function fibonacci(n) {
-    if (n === 0) {
+  if (n === 0) {
       return 0;
-    } else if (n === 1 || n === 2) {
+  } else if (n === 1) {
       return 1;
-    } else {
-      let a = 1, b = 1, c;
-      for (let i = 3; i <= n; i++) {
-        c = a + b;
-        a = b;
-        b = c;
-      }
-      return b;
-    }
+  } else {
+      return fibonacci(n - 1) + fibonacci(n - 2);
   }
+}
+
   
 
 /* Optional 
