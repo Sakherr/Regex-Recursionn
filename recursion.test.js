@@ -44,20 +44,13 @@ Example: n = 4 ==> 3, n= 0 ==> 0, n = 3 ==> 2 */
 
 function fibonacci(n) {
     if (n === 0) {
-      return 0;
-    } else if (n === 1 || n === 2) {
-      return 1;
+        return 0;
+    } else if (n === 1) {
+        return 1;
     } else {
-      let a = 1, b = 1, c;
-      for (let i = 3; i <= n; i++) {
-        c = a + b;
-        a = b;
-        b = c;
-      }
-      return b;
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
-  }
-  
+}
 
 /* Optional 
 
